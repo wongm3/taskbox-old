@@ -7,11 +7,12 @@
     "test": "jest",
     "storybook": "start-storybook -p 6006",
     "start:storybook": "run-p watch:tailwind storybook",
-    "prebuild:storybook": "build:tailwind",
+    "prebuild:storybook": "npm run build:tailwind",
     "build:storybook": "build-storybook",
     "build:tailwind": "postcss src/tailwind.css -o src/assets/index.css",
     "watch:tailwind": "npm run build:tailwind -- --watch",
-    "lint": "eslint --ignore-path .gitignore --ignore-pattern node_modules . --ext .tsx,.ts"
+    "lint": "eslint --ignore-path .gitignore --ignore-pattern node_modules . --ext .tsx,.ts",
+    "chromatic": "chromatic -b build:storybook --project-token=207uvje7icg"
   },
   "keywords": [],
   "author": "",
@@ -39,6 +40,7 @@
     "@typescript-eslint/parser": "2.31.0",
     "autoprefixer": "9.7.6",
     "babel-loader": "8.1.0",
+    "chromatic": "4.0.2",
     "eslint": "7.0.0",
     "eslint-config-airbnb": "18.1.0",
     "eslint-config-prettier": "6.11.0",
