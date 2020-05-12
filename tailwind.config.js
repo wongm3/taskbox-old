@@ -18,6 +18,9 @@ module.exports = {
       minHeight: {
         '72': '18rem',
       },
+      cursor: {
+        progress: 'progress',
+      },
     },
   },
   variants: {

@@ -15,24 +15,8 @@ export const Task: React.FC<TaskProps> = (props) => {
   const { id, title, state, onArchiveTask, onPinTask } = props;
 
   return (
-    <div
-      className={classNames(
-        'flex',
-        'flex-wrap',
-        'items-center',
-        'h-12',
-        'w-full',
-        'bg-white',
-        'transition-all',
-        'ease-out',
-        'duration-150',
-        'hover:bg-gradient-list-item'
-      )}
-    >
-      <label
-        htmlFor={`${id}-checked`}
-        className={classNames('custom-label', 'flex', 'flex-none', 'px-4', 'hover:cursor-pointer')}
-      >
+    <div className="list-item flex flex-wrap items-center h-12 w-full bg-white transition-all ease-out duration-150 hover:bg-gradient-list-item">
+      <label htmlFor={`${id}-checked`} className="custom-label flex flex-none px-4 hover:cursor-pointer">
         <input
           type="checkbox"
           id={`${id}-checked`}
@@ -43,15 +27,15 @@ export const Task: React.FC<TaskProps> = (props) => {
         />
         <button
           type="button"
-          className={classNames('shadow-checkbox', 'w-4', 'h-4', 'bg-transparent', 'focus:outline-none')}
+          className="shadow-checkbox w-4 h-4 bg-transparent focus:outline-none"
           onClick={() => onArchiveTask(id)}
         >
-          <Checkmark className={classNames('hidden', 'fill-current', 'text-primary', 'pointer-events-none')} />
+          <Checkmark className="hidden fill-current text-primary pointer-events-none" />
         </button>
       </label>
-      <div className={classNames('truncate', 'flex-1')}>
+      <div className="truncate flex-1">
         <input
-          className={classNames('bg-transparent', 'w-full', 'focus:cursor-text', {
+          className={classNames('bg-transparent w-full focus:cursor-text', {
             'text-gray-500': state === 'TASK_ARCHIVED',
           })}
           type="text"
@@ -60,21 +44,17 @@ export const Task: React.FC<TaskProps> = (props) => {
           readOnly
         />
       </div>
-      <div className={classNames('transition-all', 'ease-in', 'duration-200', 'pr-5')}>
+      <div className="transition-all ease-in duration-200 pr-5">
         {state !== 'TASK_ARCHIVED' && (
           <button
             type="button"
-            className={classNames(
-              'inline-block',
-              { 'text-gray-300': state !== 'TASK_PINNED' },
-              { 'text-primary': state === 'TASK_PINNED' },
-              'hover:text-primary',
-              'active:text-gray-700',
-              'focus:outline-none'
-            )}
+            className={classNames('inline-block hover:text-primary active:text-gray-700 focus:outline-none', {
+              'text-gray-300': state !== 'TASK_PINNED',
+              'text-primary': state === 'TASK_PINNED',
+            })}
             onClick={() => onPinTask(id)}
           >
-            <StarFull className={classNames('fill-current', 'w-4', 'h-4')} />
+            <StarFull className="fill-current w-4 h-4" />
           </button>
         )}
       </div>

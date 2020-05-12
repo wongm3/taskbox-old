@@ -18,9 +18,17 @@ input[type="text"][disabled] {
   @apply opacity-50;
 }
 
-@tailwind components;
+@keyframes glow {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
 
-@tailwind utilities;
+@tailwind components;
 
 .custom-label input:checked + .shadow-checkbox {
   @apply shadow-none;
@@ -35,3 +43,22 @@ input[type="text"][disabled] {
     background-image: linear-gradient(to bottom, #e5f9f7 0%, #f0fffd 100%);
   }
 }
+
+.list-item + .list-item {
+  @apply border-t border-solid border-gray-200;
+}
+
+.list-items {
+  @apply relative bg-white min-h-72;
+}
+
+.loading-item + .loading-item {
+  @apply border-t border-solid border-gray-200;
+}
+
+.glow-item {
+  animation: glow 1.5s ease-in-out infinite;
+  @apply inline-block bg-gray-300 text-transparent cursor-progress;
+}
+
+@tailwind utilities;
