@@ -1,1 +1,1 @@
-export { Task as default, TaskProps } from './task';
+export { Task as default, TaskProps, TaskInfo } from './task';

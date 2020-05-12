@@ -1,1 +1,1 @@
-export { TaskList as default, TaskListProps } from './task-list';
+export { default, TaskList, TaskListProps } from './task-list';

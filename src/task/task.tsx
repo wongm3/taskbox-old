@@ -3,10 +3,12 @@ import classNames from 'classnames';
 import Checkmark from '../icons/Checkmark';
 import StarFull from '../icons/StarFull';
 
-export interface TaskProps {
+export interface TaskInfo {
   id: string;
   title: string;
   state: 'TASK_INBOX' | 'TASK_PINNED' | 'TASK_ARCHIVED';
+}
+export interface TaskProps extends TaskInfo {
   onArchiveTask: (id: string) => void;
   onPinTask: (id: string) => void;
 }

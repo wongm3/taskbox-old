@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { DecoratorFn } from '@storybook/react';
-import TaskList from '.';
+import { TaskList } from '.';
 import { TaskProps } from '../task';
 import { taskData, actionsData } from '../task/task.stories';
 
