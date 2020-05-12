@@ -1,5 +1,37 @@
 @tailwind base;
 
+input {
+  @apply py-3;
+  @apply leading-6;
+  @apply border-none;
+  @apply rounded-none;
+  @apply box-border;
+  @apply text-gray-800;
+  @apply outline-none;
+}
+
+input[type="text"]::placeholder {
+  @apply text-gray-600;
+}
+
+input[type="text"][disabled] {
+  @apply opacity-50;
+}
+
 @tailwind components;
 
 @tailwind utilities;
+
+.custom-label input:checked + .shadow-checkbox {
+  @apply shadow-none;
+}
+
+.custom-label input:checked + .shadow-checkbox > svg {
+  display: block;
+}
+
+@variants hover {
+  .bg-gradient-list-item {
+    background-image: linear-gradient(to bottom, #e5f9f7 0%, #f0fffd 100%);
+  }
+}

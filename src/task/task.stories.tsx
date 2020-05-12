@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { action } from '@storybook/addon-actions';
-import Task from './task';
+import Task, { TaskProps } from '.';
 
 export default {
   component: Task,
@@ -24,4 +24,8 @@ export const actionsData = {
   onArchiveTask: action('onArchiveTask'),
 };
 
-export const Default = () => <Task task={{ ...taskData }} {...actionsData} />;
+export const Default = () => <Task {...({ ...taskData, ...actionsData } as TaskProps)} />;
+
+export const Pinned = () => <Task {...({ ...taskData, state: 'TASK_PINNED', ...actionsData } as TaskProps)} />;
+
+export const Archived = () => <Task {...({ ...taskData, state: 'TASK_ARCHIVED', ...actionsData } as TaskProps)} />;

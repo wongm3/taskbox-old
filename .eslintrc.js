@@ -45,7 +45,6 @@ module.exports = {
         extensions: ['.jsx', '.tsx'],
       },
     ],
-    'react/jsx-props-no-spreading': 'off',
     'import/extensions': [
       'error',
       'ignorePackages',
@@ -73,6 +72,12 @@ module.exports = {
       files: ['**/*.tsx'],
       rules: {
         'react/prop-types': 'off',
+      },
+    },
+    {
+      files: ['**/*.stories..tsx'],
+      rules: {
+        'react/jsx-props-no-spreading': 'off',
       },
     },
   ],

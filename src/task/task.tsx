@@ -1,22 +1,83 @@
 import * as React from 'react';
+import classNames from 'classnames';
+import Checkmark from '../icons/Checkmark';
+import StarFull from '../icons/StarFull';
 
-export interface ITaskProps {
-  task: {
-    id: string;
-    title: string;
-  };
+export interface TaskProps {
+  id: string;
+  title: string;
+  state: 'TASK_INBOX' | 'TASK_PINNED' | 'TASK_ARCHIVED';
+  onArchiveTask: (id: string) => void;
+  onPinTask: (id: string) => void;
 }
 
-export const Task: React.FC<ITaskProps> = (props) => {
-  const {
-    task: { title },
-  } = props;
+export const Task: React.FC<TaskProps> = (props) => {
+  const { id, title, state, onArchiveTask, onPinTask } = props;
 
   return (
-    <div>
-      <input type="text" value={title} readOnly />
+    <div
+      className={classNames(
+        'flex',
+        'flex-wrap',
+        'items-center',
+        'h-12',
+        'w-full',
+        'bg-white',
+        'transition-all',
+        'ease-out',
+        'duration-150',
+        'hover:bg-gradient-list-item'
+      )}
+    >
+      <label
+        htmlFor={`${id}-checked`}
+        className={classNames('custom-label', 'flex', 'flex-none', 'px-4', 'hover:cursor-pointer')}
+      >
+        <input
+          type="checkbox"
+          id={`${id}-checked`}
+          name={`${id}-checked`}
+          className="hidden"
+          disabled
+          defaultChecked={state === 'TASK_ARCHIVED'}
+        />
+        <button
+          type="button"
+          className={classNames('shadow-checkbox', 'w-4', 'h-4', 'bg-transparent', 'focus:outline-none')}
+          onClick={() => onArchiveTask(id)}
+        >
+          <Checkmark className={classNames('hidden', 'fill-current', 'text-primary', 'pointer-events-none')} />
+        </button>
+      </label>
+      <div className={classNames('truncate', 'flex-1')}>
+        <input
+          className={classNames('bg-transparent', 'w-full', 'focus:cursor-text', {
+            'text-gray-500': state === 'TASK_ARCHIVED',
+          })}
+          type="text"
+          value={title}
+          placeholder="Input title"
+          readOnly
+        />
+      </div>
+      <div className={classNames('transition-all', 'ease-in', 'duration-200', 'pr-5')}>
+        {state !== 'TASK_ARCHIVED' && (
+          <button
+            type="button"
+            className={classNames(
+              'inline-block',
+              { 'text-gray-300': state !== 'TASK_PINNED' },
+              { 'text-primary': state === 'TASK_PINNED' },
+              'hover:text-primary',
+              'active:text-gray-700',
+              'focus:outline-none'
+            )}
+            onClick={() => onPinTask(id)}
+          >
+            <StarFull className={classNames('fill-current', 'w-4', 'h-4')} />
+          </button>
+        )}
+      </div>
     </div>
   );
 };
-
-export default Task;
