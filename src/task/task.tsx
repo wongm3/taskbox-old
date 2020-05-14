@@ -37,7 +37,7 @@ export const Task: React.FC<TaskProps> = (props) => {
       </label>
       <div className="truncate flex-1">
         <input
-          className={classNames('bg-transparent w-full focus:cursor-text', {
+          className={classNames('bg-transparent w-full focus:cursor-text truncate', {
             'text-gray-500': state === 'TASK_ARCHIVED',
           })}
           type="text"
