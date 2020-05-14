@@ -34,10 +34,6 @@ input[type="text"][disabled] {
   }
 }
 
-.list-items {
-  @apply relative bg-white min-h-72;
-}
-
 .loading-item + .loading-item {
   @apply border-t border-solid border-gray-200;
 }

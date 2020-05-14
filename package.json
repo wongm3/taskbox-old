@@ -42,6 +42,7 @@
     "autoprefixer": "9.7.6",
     "babel-loader": "8.1.0",
     "chromatic": "4.0.2",
+    "devmoji": "2.1.9",
     "eslint": "7.0.0",
     "eslint-config-airbnb": "18.1.0",
     "eslint-config-prettier": "6.11.0",
@@ -54,6 +55,7 @@
     "eslint-plugin-react": "7.19.0",
     "eslint-plugin-react-hooks": "4.0.0",
     "eslint-plugin-testing-library": "3.1.1",
+    "husky": "4.2.5",
     "jest": "26.0.1",
     "npm-run-all": "4.1.5",
     "postcss-cli": "7.1.1",
@@ -64,5 +66,10 @@
     "ts-jest": "25.5.0",
     "ts-loader": "7.0.3",
     "typescript": "3.8.3"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "npx --no-install devmoji -e --lint"
+    }
   }
 }
