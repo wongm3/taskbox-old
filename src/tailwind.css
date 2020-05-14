@@ -18,16 +18,6 @@ input[type="text"][disabled] {
   @apply opacity-50;
 }
 
-@keyframes glow {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-}
-
 @tailwind components;
 
 .custom-label input:checked + .shadow-checkbox {
@@ -44,10 +34,6 @@ input[type="text"][disabled] {
   }
 }
 
-.list-item + .list-item {
-  @apply border-t border-solid border-gray-200;
-}
-
 .list-items {
   @apply relative bg-white min-h-72;
 }
@@ -56,9 +42,19 @@ input[type="text"][disabled] {
   @apply border-t border-solid border-gray-200;
 }
 
+@tailwind utilities;
+
+@keyframes glow {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
 .glow-item {
   animation: glow 1.5s ease-in-out infinite;
   @apply inline-block bg-gray-300 text-transparent cursor-progress;
 }
-
-@tailwind utilities;

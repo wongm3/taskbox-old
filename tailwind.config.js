@@ -25,6 +25,16 @@ module.exports = {
     },
   },
   variants: {
+    borderWidth: ['responsive', 'first-child'],
     cursor: ['responsive', 'focus'],
   },
+  plugins: [
+    ({ addVariant, e }) => {
+      addVariant('first-child', ({ modifySelectors, separator }) => {
+        modifySelectors(({ className }) => {
+          return `.${e(`first-child${separator}${className}`)}:first-child`
+        });
+      });
+    },
+  ],
 };

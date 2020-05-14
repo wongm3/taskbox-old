@@ -17,7 +17,7 @@ export const Task: React.FC<TaskProps> = (props) => {
   const { id, title, state, onArchiveTask, onPinTask } = props;
 
   return (
-    <div className="list-item flex flex-wrap items-center h-12 w-full bg-white transition-all ease-out duration-150 hover:bg-gradient-list-item">
+    <div className="flex flex-wrap items-center h-12 w-full bg-white border-t border-solid border-gray-200 first-child:border-t-0 transition-all ease-out duration-150 hover:bg-gradient-list-item">
       <label htmlFor={`${id}-checked`} className="custom-label flex flex-none px-4 hover:cursor-pointer">
         <input
           type="checkbox"
@@ -35,7 +35,7 @@ export const Task: React.FC<TaskProps> = (props) => {
           <Checkmark className="hidden fill-current text-primary pointer-events-none" />
         </button>
       </label>
-      <div className="truncate flex-1">
+      <div className="flex-1 truncate">
         <input
           className={classNames('bg-transparent w-full focus:cursor-text truncate', {
             'text-gray-500': state === 'TASK_ARCHIVED',
@@ -46,7 +46,7 @@ export const Task: React.FC<TaskProps> = (props) => {
           readOnly
         />
       </div>
-      <div className="transition-all ease-in duration-200 pr-5">
+      <div className="pr-5 transition-all ease-in duration-200">
         {state !== 'TASK_ARCHIVED' && (
           <button
             type="button"
@@ -56,7 +56,7 @@ export const Task: React.FC<TaskProps> = (props) => {
             })}
             onClick={() => onPinTask(id)}
           >
-            <StarFull className="fill-current w-4 h-4" />
+            <StarFull className="w-4 h-4 fill-current" />
           </button>
         )}
       </div>
