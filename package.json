@@ -69,7 +69,8 @@
   },
   "husky": {
     "hooks": {
-      "commit-msg": "npx --no-install devmoji -e --lint"
+      "commit-msg": "npx --no-install devmoji -e --lint",
+      "post-rewrite": "npx --no-install devmoji -e --lint"
     }
   }
 }
