@@ -32,7 +32,7 @@ module.exports = {
     ({ addVariant, e }) => {
       addVariant('first-child', ({ modifySelectors, separator }) => {
         modifySelectors(({ className }) => {
-          return `.${e(`first-child${separator}${className}`)}:first-child`
+          return `.${e(`first-child${separator}${className}`)}:first-child`;
         });
       });
     },
