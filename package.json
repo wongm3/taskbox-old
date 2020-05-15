@@ -56,6 +56,7 @@
     "eslint-plugin-testing-library": "3.1.2",
     "husky": "4.2.5",
     "jest": "26.0.1",
+    "lint-staged": "10.2.2",
     "npm-run-all": "4.1.5",
     "postcss-cli": "7.1.1",
     "prettier": "2.0.5",
@@ -69,7 +70,12 @@
   "husky": {
     "hooks": {
       "commit-msg": "npx --no-install devmoji -e --lint",
-      "post-rewrite": "npx --no-install devmoji -e --lint"
+      "post-rewrite": "npx --no-install devmoji -e --lint",
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "*.{tsx,ts}": "eslint --cache --fix",
+    "*.{js,css,json}": "prettier --write"
   }
 }
