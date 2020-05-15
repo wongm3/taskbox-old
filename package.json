@@ -11,8 +11,7 @@
     "build:storybook": "build-storybook",
     "build:tailwind": "postcss src/tailwind.css -o src/assets/index.css",
     "watch:tailwind": "npm run build:tailwind -- --watch",
-    "lint": "eslint --ignore-path .gitignore --ignore-pattern node_modules . --ext .tsx,.ts",
-    "chromatic": "chromatic -b build:storybook --project-token=207uvje7icg"
+    "lint": "eslint --ignore-path .gitignore --ignore-pattern node_modules . --ext .tsx,.ts"
   },
   "keywords": [],
   "author": "",
