@@ -19,6 +19,7 @@ export default {
   ] as DecoratorFn[],
 };
 
-export const Default = () => <InboxScreen />;
+const Default = () => <InboxScreen />,
+  Error = () => <InboxScreen error="Something" />;
 
-export const Error = () => <InboxScreen error="Something" />;
+export { Default, Error };

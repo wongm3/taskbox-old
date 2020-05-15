@@ -6,6 +6,7 @@ module.exports = {
   },
   extends: [
     'airbnb',
+    'plugin:jsx-a11y/recommended',
     'plugin:jest/all',
     'plugin:testing-library/react',
     'plugin:jest-dom/recommended',
@@ -20,8 +21,18 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: ['react', 'prettier', 'react-hooks', 'jest', '@typescript-eslint', 'testing-library', 'jest-dom'],
+  plugins: [
+    'react',
+    'prettier',
+    'react-hooks',
+    'jest',
+    '@typescript-eslint',
+    'testing-library',
+    'jest-dom',
+    'jsx-a11y',
+  ],
   rules: {
+    'one-var': ['error', 'always'],
     'import/no-extraneous-dependencies': [
       'error',
       {
@@ -75,7 +86,7 @@ module.exports = {
       },
     },
     {
-      files: ['**/*.stories..tsx'],
+      files: ['**/*.stories.tsx', '**/src/icons/*'],
       rules: {
         'react/jsx-props-no-spreading': 'off',
       },
