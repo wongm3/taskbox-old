@@ -15,6 +15,4 @@ jobs:
         with:
           node-version: 14
       - run: npm ci
-      - run: chromatic -b build:storybook --project-token=CHROMATIC_PROJECT_TOKEN
-        with:
-          CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+      - run: chromatic -b build:storybook --project-token=${{ secrets.CHROMATIC_PROJECT_TOKEN }}
