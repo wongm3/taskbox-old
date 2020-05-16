@@ -6,6 +6,7 @@ module.exports = {
   },
   extends: [
     'airbnb',
+    'plugin:jsx-a11y/recommended',
     'plugin:jest/all',
     'plugin:testing-library/react',
     'plugin:jest-dom/recommended',
@@ -20,8 +21,18 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: ['react', 'prettier', 'react-hooks', 'jest', '@typescript-eslint', 'testing-library', 'jest-dom'],
+  plugins: [
+    'react',
+    'prettier',
+    'react-hooks',
+    'jest',
+    '@typescript-eslint',
+    'testing-library',
+    'jest-dom',
+    'jsx-a11y',
+  ],
   rules: {
+    'one-var': ['error', 'consecutive'],
     'import/no-extraneous-dependencies': [
       'error',
       {
@@ -34,6 +45,8 @@ module.exports = {
           '**/*.stories.jsx',
           '**/*.test.js',
           '**/*.stories.js',
+          'src/test-utils.tsx',
+          'jest.setup.ts',
         ],
       },
     ],
@@ -75,9 +88,19 @@ module.exports = {
       },
     },
     {
-      files: ['**/*.stories..tsx'],
+      files: ['**/*.stories.tsx', '**/src/icons/*'],
       rules: {
         'react/jsx-props-no-spreading': 'off',
+      },
+    },
+    {
+      files: ['**/__tests__/**', '**/__mocks__/**'],
+      settings: {
+        'import/resolver': {
+          jest: {
+            jestConfigFile: './jest.config.js',
+          },
+        },
       },
     },
   ],
@@ -85,10 +108,8 @@ module.exports = {
     'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
     'import/resolver': {
       node: {
+        paths: ['src'],
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      },
-      jest: {
-        jestConfigFile: './jest.config.js',
       },
     },
   },

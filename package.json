@@ -5,18 +5,21 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "test:watch": "npm t -- --watch",
     "storybook": "start-storybook -p 6006",
     "start:storybook": "run-p watch:tailwind storybook",
     "prebuild:storybook": "npm run build:tailwind",
     "build:storybook": "build-storybook",
     "build:tailwind": "postcss src/tailwind.css -o src/assets/index.css",
     "watch:tailwind": "npm run build:tailwind -- --watch",
-    "lint": "eslint --ignore-path .gitignore --ignore-pattern node_modules . --ext .tsx,.ts"
+    "lint": "eslint --ignore-path .gitignore --ignore-pattern node_modules . --ext .tsx,.ts",
+    "lint:fix": "npm run lint -- --fix"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/testing-library__react": "10.0.1",
     "classnames": "2.2.6",
     "react": "16.13.1",
     "react-dom": "16.13.1"

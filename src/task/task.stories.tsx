@@ -10,24 +10,20 @@ export default {
   excludeStories: /.*Data$/,
 };
 
-export const taskData = {
-  id: '1',
-  title: 'Test Task',
-  state: 'TASK_INBOX',
-} as TaskInfo;
+const taskData = {
+    id: '1',
+    title: 'Test Task',
+    state: 'TASK_INBOX' as TaskInfo['state'],
+  },
+  actionsData = {
+    onPinTask: action('onPinTask'),
+    onArchiveTask: action('onArchiveTask'),
+  },
+  Default = () => <Task {...{ ...object('task', taskData), ...actionsData }} />,
+  Pinned = () => <Task {...{ ...taskData, state: 'TASK_PINNED', ...actionsData }} />,
+  Archived = () => <Task {...{ ...taskData, state: 'TASK_ARCHIVED', ...actionsData }} />,
+  longTitleString =
+    "Morty, you know outer space is up right? Well, to be honest, I'm kind of grossed out with the sexual nature of how everything unfolded. I didn't know how sexual dragons were. I kind of just wanted to do some D&D stuff, y'know? Shadow Jacker, you haven't come out of your masturbation cave in eons! You created a day care for my dad?",
+  LongTitle = () => <Task {...{ ...taskData, title: longTitleString, ...actionsData }} />;
 
-export const actionsData = {
-  onPinTask: action('onPinTask'),
-  onArchiveTask: action('onArchiveTask'),
-};
-
-export const Default = () => <Task {...{ ...object('task', taskData), ...actionsData }} />;
-
-export const Pinned = () => <Task {...{ ...taskData, state: 'TASK_PINNED', ...actionsData }} />;
-
-export const Archived = () => <Task {...{ ...taskData, state: 'TASK_ARCHIVED', ...actionsData }} />;
-
-const longTitleString =
-  "Morty, you know outer space is up right? Well, to be honest, I'm kind of grossed out with the sexual nature of how everything unfolded. I didn't know how sexual dragons were. I kind of just wanted to do some D&D stuff, y'know? Shadow Jacker, you haven't come out of your masturbation cave in eons! You created a day care for my dad?";
-
-export const LongTitle = () => <Task {...{ ...taskData, title: longTitleString, ...actionsData }} />;
+export { taskData, actionsData, Default, Pinned, Archived, LongTitle };

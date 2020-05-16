@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { DecoratorFn } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import TasksContext from '../tasks-context';
+import { TasksContext } from '../tasks-context';
 import { defaultTasksData } from '../task-list/task-list.stories';
 import InboxScreen from '.';
 
@@ -11,7 +11,7 @@ export default {
   decorators: [
     (story) => (
       <TasksContext.Provider
-        value={{ tasks: defaultTasksData, pinTask: action('pin'), archiveTask: action('archive') }}
+        value={{ loading: false, tasks: defaultTasksData, pinTask: action('pin'), archiveTask: action('archive') }}
       >
         {story()}
       </TasksContext.Provider>
@@ -19,6 +19,7 @@ export default {
   ] as DecoratorFn[],
 };
 
-export const Default = () => <InboxScreen />;
+const Default = () => <InboxScreen />,
+  Error = () => <InboxScreen error="Something" />;
 
-export const Error = () => <InboxScreen error="Something" />;
+export { Default, Error };
