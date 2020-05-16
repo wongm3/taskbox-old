@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "test:watch": "npm t -- --watch",
     "storybook": "start-storybook -p 6006",
     "start:storybook": "run-p watch:tailwind storybook",
     "prebuild:storybook": "npm run build:tailwind",
@@ -18,6 +19,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/testing-library__react": "10.0.1",
     "classnames": "2.2.6",
     "react": "16.13.1",
     "react-dom": "16.13.1"

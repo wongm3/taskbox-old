@@ -4,3 +4,4 @@ src/assets/index.css
 src/index.css
 build
 .eslintcache
+coverage

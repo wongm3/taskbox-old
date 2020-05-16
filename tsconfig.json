@@ -23,6 +23,6 @@
     "emitDecoratorMetadata": true,
     "noErrorTruncation": true
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "tests/test-utils.ts"],
   "exclude": ["node_modules", "build", "scripts"]
 }

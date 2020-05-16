@@ -32,7 +32,7 @@ module.exports = {
     'jsx-a11y',
   ],
   rules: {
-    'one-var': ['error', 'always'],
+    'one-var': ['error', 'consecutive'],
     'import/no-extraneous-dependencies': [
       'error',
       {
@@ -45,6 +45,8 @@ module.exports = {
           '**/*.stories.jsx',
           '**/*.test.js',
           '**/*.stories.js',
+          'src/test-utils.tsx',
+          'jest.setup.ts',
         ],
       },
     ],
@@ -91,15 +93,23 @@ module.exports = {
         'react/jsx-props-no-spreading': 'off',
       },
     },
+    {
+      files: ['**/__tests__/**', '**/__mocks__/**'],
+      settings: {
+        'import/resolver': {
+          jest: {
+            jestConfigFile: './jest.config.js',
+          },
+        },
+      },
+    },
   ],
   settings: {
     'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
     'import/resolver': {
       node: {
+        paths: ['src'],
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      },
-      jest: {
-        jestConfigFile: './jest.config.js',
       },
     },
   },
