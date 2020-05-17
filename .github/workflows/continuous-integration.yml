@@ -15,8 +15,8 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 14.x
-      - run: npm ci
-      - run: npx chromatic -b build:storybook --project-token=${{ secrets.CHROMATIC_PROJECT_TOKEN }} --auto-accept-changes
+      - run: yarn install --frozen-lockfile
+      - run: yarn chromatic -b build:storybook --project-token=${{ secrets.CHROMATIC_PROJECT_TOKEN }} --auto-accept-changes
   unit_test:
     name: Unit Tests
     runs-on: ubuntu-latest
@@ -25,5 +25,5 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 14.x
-      - run: npm ci
-      - run: npm t
+      - run: yarn install --frozen-lockfile
+      - run: yarn test
