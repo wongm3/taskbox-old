@@ -1,11 +1,11 @@
-name: Chromatic Pull Request
+name: Pull Request
 
 on:
   pull_request:
     branches: [master]
 
 jobs:
-  pr_test:
+  chromatic:
     name: Pull Request Chromatic Test
     runs-on: ubuntu-latest
     steps:
@@ -14,6 +14,16 @@ jobs:
           fetch-depth: 0 # Required to retrieve git history
       - uses: actions/setup-node@v1
         with:
-          node-version: 14
+          node-version: 14.x
       - run: npm ci
       - run: npx chromatic -b build:storybook --project-token=${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+  unit_test:
+    name: Pull Request Unit Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - run: npm ci
+      - run: npm t
