@@ -43,7 +43,7 @@
     "@typescript-eslint/parser": "2.33.0",
     "autoprefixer": "9.7.6",
     "babel-loader": "8.1.0",
-    "chromatic": "4.0.2",
+    "chromatic": "13.1.2",
     "devmoji": "2.1.9",
     "eslint": "7.0.0",
     "eslint-config-airbnb": "18.1.0",
